@@ -1,0 +1,53 @@
+<div class="filter-container">
+  <mat-form-field appearance="outline">
+    <mat-label>Seleccione un grado</mat-label>
+    <mat-select (selectionChange)="applyFilter($event.value)">
+      <mat-option *ngFor="let grado of grades" [value]="grado.id">
+        {{ grado.value }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<mat-table [dataSource]="dataSource" matSort>
+
+  <ng-container matColumnDef="nombre">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>
+    <mat-cell *matCellDef="let student"> {{ student.nombre }} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="grado">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Grado </mat-header-cell>
+    <mat-cell *matCellDef="let student"> {{ student.grado }} </mat-cell>
+  </ng-container>
+ 
+
+  <ng-container matColumnDef="seccion">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Sección </mat-header-cell>
+    <mat-cell *matCellDef="let student"> {{ student.seccion }} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="fechaNacimiento">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Fecha de Nacimiento </mat-header-cell>
+    <mat-cell *matCellDef="let student"> {{ student.fechaNacimiento | date:'dd/MM/yyyy' }} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="nombrePadre">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre del Padre </mat-header-cell>
+    <mat-cell *matCellDef="let student"> {{ student.nombrePadre }} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="nombreMadre">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre de la Madre </mat-header-cell>
+    <mat-cell *matCellDef="let student"> {{ student.nombreMadre }} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="fechaIngreso">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Fecha de Ingreso </mat-header-cell>
+    <mat-cell *matCellDef="let student"> {{ student.fechaIngreso | date:'dd/MM/yyyy' }} </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+</mat-table>

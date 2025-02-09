@@ -1,0 +1,144 @@
+{
+	"info": {
+		"_postman_id": "8f6de857-1836-45a5-b227-3515f8e721b4",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15910447",
+		"_collection_link": "https://red-moon-989487.postman.co/workspace/analisis1~601be29c-4077-4d32-9cf7-7437ac52a60a/collection/15910447-8f6de857-1836-45a5-b227-3515f8e721b4?action=share&source=collection_link&creator=15910447"
+	},
+	"item": [
+		{
+			"name": "http://127.0.0.1:8000/api/alumnos/crear-alumno",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM4MzU3MTI5LCJpYXQiOjE3MzgzNTM1MjksImp0aSI6ImMwZDFlYWRiODczOTQ3NGI4NGY0ZDg0NGZiY2VjMzUxIiwidXNlcl9pZCI6MX0.kfp-w_PMDSznWNIein6tJ8zfu3V_aAfuV-z82jIfsqs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"Ismael\",\r\n    \"password\":\"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/token/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"token",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/alumnos/crear-alumno",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM4MzU3MTI5LCJpYXQiOjE3MzgzNTM1MjksImp0aSI6ImMwZDFlYWRiODczOTQ3NGI4NGY0ZDg0NGZiY2VjMzUxIiwidXNlcl9pZCI6MX0.kfp-w_PMDSznWNIein6tJ8zfu3V_aAfuV-z82jIfsqs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\":\"test\",\r\n    \"fechaNacimiento\":\"2022-01-01\",\r\n    \"nombrePadre\":\"test\",\r\n    \"nombreMadre\":\"test\",\r\n    \"grado\":1,\r\n    \"seccion\":\"A\",\r\n    \"fechaIngreso\":\"2022-01-01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/alumnos/crear-alumno",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"alumnos",
+						"crear-alumno"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/alumnos/crear-alumno Copy 2",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM4MzU3MTI5LCJpYXQiOjE3MzgzNTM1MjksImp0aSI6ImMwZDFlYWRiODczOTQ3NGI4NGY0ZDg0NGZiY2VjMzUxIiwidXNlcl9pZCI6MX0.kfp-w_PMDSznWNIein6tJ8zfu3V_aAfuV-z82jIfsqs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\":\"test\",\r\n    \"fechaNacimiento\":\"2022-01-01\",\r\n    \"nombrePadre\":\"test\",\r\n    \"nombreMadre\":\"test\",\r\n    \"grado\":1,\r\n    \"seccion\":\"A\",\r\n    \"fechaIngreso\":\"2022-01-01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/alumnos/consultar-alumno/0",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"alumnos",
+						"consultar-alumno",
+						"0"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

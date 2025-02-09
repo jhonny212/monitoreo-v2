@@ -1,0 +1,38 @@
+services:
+
+  db:
+    image: postgres:15
+    container_name: nestjs_db
+    environment:
+      POSTGRES_DATABASE: monitoreo
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Jhon19PVT
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - nestjs_network
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nestjs_app
+    environment:
+      - DATABASE_URL=postgres://postgres:Jhon19PVT@db:5432/monitoreo           
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    env_file:
+      - src/.env
+    networks:
+      - nestjs_network
+
+volumes:
+  postgres_data:
+
+networks:
+  nestjs_network:
+    driver: bridge

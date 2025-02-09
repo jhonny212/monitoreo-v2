@@ -1,0 +1,33 @@
+
+<mat-sidenav-container *ngIf="isLoggedIn()" class="sidenav-container">
+  <mat-sidenav #sidenav [mode]="'over'" [(opened)]="isMenuOpen" class="sidenav">
+    <mat-nav-list>
+      <a mat-list-item routerLink="/registrar-alumno" routerLinkActive="active-link" (click)="sidenav.close()">
+        <span>Registrar alumno</span>
+      </a>
+      <a mat-list-item routerLink="/home" routerLinkActive="active-link" (click)="sidenav.close()">
+        <span>Ver alumnos</span>
+      </a>
+      <a mat-list-item routerLink="/login" (click)="logout()">
+        <span>Cerrar sesión</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content style="background-color: #eaeaec;">
+    <mat-toolbar color="primary">
+      <button mat-icon-button style="color: white"  (click)="toggleMenu()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Monitoreo estudiantil</span>
+      <span class="toolbar-spacer"></span>
+    </mat-toolbar>
+
+    <div class="content">
+      <app-alert></app-alert>
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+<app-alert></app-alert>
+<router-outlet *ngIf="!isLoggedIn()"></router-outlet>

@@ -1,0 +1,65 @@
+<form [formGroup]="studentForm" (ngSubmit)="onSubmit()" class="student-form">
+    <mat-card>
+      <mat-card-title>Registro de Estudiante</mat-card-title>
+  
+      <mat-form-field appearance="outline" style="margin-top: 20px;">
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="nombre" />
+        <mat-error *ngIf="studentForm.get('nombre')?.hasError('required')">El nombre es obligatorio</mat-error>
+        <mat-error *ngIf="studentForm.get('nombre')?.hasError('minlength')">Mínimo 3 caracteres</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline">
+        <mat-label>Fecha de Nacimiento</mat-label>
+        <input matInput [matDatepicker]="picker1" formControlName="fechaNacimiento" />
+        <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+        <mat-error *ngIf="studentForm.get('fechaNacimiento')?.hasError('required')">Seleccione una fecha</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline">
+        <mat-label>Nombre del Padre</mat-label>
+        <input matInput formControlName="nombrePadre" />
+        <mat-error *ngIf="studentForm.get('nombrePadre')?.hasError('required')">Este campo es obligatorio</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline">
+        <mat-label>Nombre de la Madre</mat-label>
+        <input matInput formControlName="nombreMadre" />
+        <mat-error *ngIf="studentForm.get('nombreMadre')?.hasError('required')">Este campo es obligatorio</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline">
+        <mat-label>Grado</mat-label>
+        <mat-select formControlName="grado">
+          <mat-option *ngFor="let grado of gradesData" [value]="grado.id">
+            {{ grado.value }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="studentForm.get('grado')?.hasError('required')">Seleccione un grado</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline">
+        <mat-label>Sección</mat-label>
+        <mat-select formControlName="seccion">
+          <mat-option *ngFor="let sec of secciones" [value]="sec">
+            {{ sec }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="studentForm.get('seccion')?.hasError('required')">Seleccione una sección</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline">
+        <mat-label>Fecha de Ingreso</mat-label>
+        <input matInput [matDatepicker]="picker2" formControlName="fechaIngreso" />
+        <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+        <mat-error *ngIf="studentForm.get('fechaIngreso')?.hasError('required')">Seleccione una fecha</mat-error>
+      </mat-form-field>
+  
+      <button mat-raised-button color="primary" type="submit" [disabled]="studentForm.invalid">
+        Enviar
+      </button>
+    </mat-card>
+  </form>
+  
